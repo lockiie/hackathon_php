@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+  api:
+    container_name: api
+    restart: on-failure
+    build:
+      context: .
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 4000:80
+    env_file:
+      - .env
+    networks:
+      - application
+    depends_on:
+      - mysql
+      - redis
+  mysql:
+    container_name: mysql
+    restart: always
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DATABASE_PASS}
+      - MYSQL_DATABASE=${DATABASE_NAME}
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - application
+  redis:
+    image: redis
+    container_name: redis
+    command: redis-server --requirepass ${REDIS_PASS}
+    networks:
+      - application
+
+networks:
+  application:
+
+volumes:
+  mysql:

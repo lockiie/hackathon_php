@@ -1,0 +1,21 @@
+{
+    "name": "lucas.pechebelok/api",
+    "description": "Project developed to help store",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Api\\": "src/"
+        }
+    },
+    "authors": [{
+        "name": "LucasPechebelok",
+        "email": "lucaspechebelok@gmail.com"
+    }],
+    "require": {
+        "slim/slim": "^4.9",
+        "slim/psr7": "^1.5",
+        "predis/predis": "^1.1",
+        "robmorgan/phinx": "^0.12.9",
+        "monolog/monolog": "^2.3"
+    }
+}
