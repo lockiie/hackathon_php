@@ -35,8 +35,8 @@ class EmpresaController
         if (is_null($empresas)) {
             return JsonResponse::create(
                 $response,
-                ['message' => 'Empresa não encontrada'],
-                StatusCodeInterface::STATUS_NOT_FOUND
+                [],
+                StatusCodeInterface::STATUS_OK
             );
         }
 

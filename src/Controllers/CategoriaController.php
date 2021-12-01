@@ -34,8 +34,8 @@ class CategoriaController
         if (is_null($categorias)) {
             return JsonResponse::create(
                 $response,
-                ['message' => 'Categoria não encontrada'],
-                StatusCodeInterface::STATUS_NOT_FOUND
+                [],
+                StatusCodeInterface::STATUS_OK
             );
         }
 

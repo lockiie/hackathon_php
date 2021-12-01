@@ -64,12 +64,11 @@ class ProdutoController
         }
         $produtos= $this->query->executeSql($sql, Produto::class);
 
-
         if (is_null($produtos)) {
             return JsonResponse::create(
                 $response,
-                ['message' => 'Produto não encontrado'],
-                StatusCodeInterface::STATUS_NOT_FOUND
+                [],
+                StatusCodeInterface::STATUS_OK
             );
         }
 
@@ -126,7 +125,7 @@ class ProdutoController
     {
         $id = $args['id'];
 
-        $produto= $this->query->find($id, Produto::class);
+        $produto = $this->query->find($id, Produto::class);
         if (is_null($produto)) {
             return $response->withStatus(404);
         }
@@ -142,7 +141,7 @@ class ProdutoController
 
         $this->query->update($produto);
 
-        $newProduto = $this->query->find($id, Product::class);
+        $newProduto = $this->query->find($id, Produto::class);
 
         return JsonResponse::create(
             $response,

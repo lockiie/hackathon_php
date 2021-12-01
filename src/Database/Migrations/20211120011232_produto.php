@@ -20,7 +20,7 @@ final class Produto extends AbstractMigration
     {
         $table = $this->table('produto');
         $table->addColumn('produto', 'string', ['limit' => 100])
-              ->addColumn('foto', 'string', ['limit' => 45])
+              ->addColumn('foto', 'string', ['limit' => 200])
               ->addColumn('descricao', 'text')
               ->addColumn('valor', 'double')
               ->addColumn('categoria_id', 'integer')
